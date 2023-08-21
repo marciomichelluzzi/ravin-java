@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.com.devxlabs.ravin.controllers.interfaces.EmployeeControllerInterface;
 import br.com.devxlabs.ravin.entities.Employee;
-import br.com.devxlabs.ravin.enums.EmployeeAviability;
+import br.com.devxlabs.ravin.enums.EmployeeAvaiability;
 import br.com.devxlabs.ravin.enums.Responsibility;
 import br.com.devxlabs.ravin.repositories.EmployeeRepository;
 import br.com.devxlabs.ravin.repositories.interfaces.RepositoryInterface;
@@ -52,7 +52,7 @@ public class EmployeeController implements EmployeeControllerInterface {
 
 		for (Employee employee : employees) {
 			if (employee.getResponsability() == Responsibility.WAITER
-					&& employee.getEmployeeAviability() == EmployeeAviability.AVAILABLE) {
+					&& employee.getEmployeeAviability() == EmployeeAvaiability.AVAILABLE) {
 				waiters.add(employee);
 			}
 		}

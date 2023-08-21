@@ -11,8 +11,8 @@ import javax.swing.JOptionPane;
 import br.com.devxlabs.ravin.controllers.EmployeeController;
 import br.com.devxlabs.ravin.entities.Employee;
 import br.com.devxlabs.ravin.entities.Person;
-import br.com.devxlabs.ravin.enums.EmployeeAviability;
-import br.com.devxlabs.ravin.enums.MeritalStatus;
+import br.com.devxlabs.ravin.enums.EmployeeAvaiability;
+import br.com.devxlabs.ravin.enums.MaritalStatus;
 import br.com.devxlabs.ravin.enums.Responsibility;
 import br.com.devxlabs.ravin.enums.Schooling;
 import br.com.devxlabs.ravin.view.interfaces.EmployeeViewInterface;
@@ -107,9 +107,9 @@ public class EmployeeView implements EmployeeViewInterface {
 		Employee employee = new Employee();
 		employee.setRg(JOptionPane.showInputDialog(EMPLOYEE_RG));
 
-		MeritalStatus meritalStatus = MeritalStatus
+		MaritalStatus maritalStatus = MaritalStatus
 				.valueOf(JOptionPane.showInputDialog(EMPLOYEE_MERITAL_STATUS, employee.getMeritalStatus()));
-		employee.setMeritalStatus(meritalStatus);
+		employee.setMeritalStatus(maritalStatus);
 
 		Responsibility responsibility = Responsibility
 				.valueOf(JOptionPane.showInputDialog(EMPLOYEE_RESPONSABILITY, employee.getResponsability()));
@@ -119,7 +119,7 @@ public class EmployeeView implements EmployeeViewInterface {
 				.valueOf(JOptionPane.showInputDialog(EMPLOYEE_SCHOOLING, employee.getSchooling()));
 		employee.setSchooling(schooling);
 
-		EmployeeAviability aviability = EmployeeAviability
+		EmployeeAvaiability aviability = EmployeeAvaiability
 				.valueOf(JOptionPane.showInputDialog(EMPLOYEE_AVIABILITY, employee.getEmployeeAviability()));
 		employee.setEmployeeAviability(aviability);
 
@@ -142,9 +142,9 @@ public class EmployeeView implements EmployeeViewInterface {
 	public Employee showEntityUpdateMenu(Employee entity) {
 		entity.setRg(JOptionPane.showInputDialog(EMPLOYEE_RG, entity.getRg()));
 
-		MeritalStatus meritalStatus = MeritalStatus
+		MaritalStatus maritalStatus = MaritalStatus
 				.valueOf(JOptionPane.showInputDialog(EMPLOYEE_MERITAL_STATUS, entity.getMeritalStatus()));
-		entity.setMeritalStatus(meritalStatus);
+		entity.setMeritalStatus(maritalStatus);
 
 		Responsibility responsibility = Responsibility
 				.valueOf(JOptionPane.showInputDialog(EMPLOYEE_RESPONSABILITY, entity.getResponsability()));
@@ -153,7 +153,7 @@ public class EmployeeView implements EmployeeViewInterface {
 		Schooling schooling = Schooling.valueOf(JOptionPane.showInputDialog(EMPLOYEE_SCHOOLING, entity.getSchooling()));
 		entity.setSchooling(schooling);
 
-		EmployeeAviability aviability = EmployeeAviability
+		EmployeeAvaiability aviability = EmployeeAvaiability
 				.valueOf(JOptionPane.showInputDialog(EMPLOYEE_AVIABILITY, entity.getEmployeeAviability()));
 		entity.setEmployeeAviability(aviability);
 

@@ -2,8 +2,8 @@ package br.com.devxlabs.ravin.entities;
 
 import java.util.Date;
 
-import br.com.devxlabs.ravin.enums.EmployeeAviability;
-import br.com.devxlabs.ravin.enums.MeritalStatus;
+import br.com.devxlabs.ravin.enums.EmployeeAvaiability;
+import br.com.devxlabs.ravin.enums.MaritalStatus;
 import br.com.devxlabs.ravin.enums.Responsibility;
 import br.com.devxlabs.ravin.enums.Schooling;
 
@@ -11,24 +11,24 @@ public class Employee extends Person {
 
 	private int employeeId;
 	private String rg;
-	private MeritalStatus meritalStatus;
+	private MaritalStatus maritalStatus;
 	private Schooling schooling;
 	private Responsibility responsability;
 	private int pis;
 	private Date admissionDate;
 	private Date resignationDate;
-	private EmployeeAviability employeeAviability;
+	private EmployeeAvaiability employeeAviability;
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int employeeId, String rg, MeritalStatus meritalStatus, Schooling schooling, Responsibility responsability,
-			Date admissionDate, Date resignationDate, EmployeeAviability employeeAviability, int pis) {
+	public Employee(int employeeId, String rg, MaritalStatus maritalStatus, Schooling schooling, Responsibility responsability,
+					Date admissionDate, Date resignationDate, EmployeeAvaiability employeeAviability, int pis) {
 		super();
 		this.employeeId = employeeId;
 		this.rg = rg;
-		this.meritalStatus = meritalStatus;
+		this.maritalStatus = maritalStatus;
 		this.schooling = schooling;
 		this.responsability = responsability;
 		this.admissionDate = admissionDate;
@@ -53,12 +53,12 @@ public class Employee extends Person {
 		this.rg = rg;
 	}
 
-	public MeritalStatus getMeritalStatus() {
-		return meritalStatus;
+	public MaritalStatus getMeritalStatus() {
+		return maritalStatus;
 	}
 
-	public void setMeritalStatus(MeritalStatus meritalStatus) {
-		this.meritalStatus = meritalStatus;
+	public void setMeritalStatus(MaritalStatus maritalStatus) {
+		this.maritalStatus = maritalStatus;
 	}
 
 	public Schooling getSchooling() {
@@ -101,17 +101,17 @@ public class Employee extends Person {
 		this.resignationDate = resignationDate;
 	}
 
-	public EmployeeAviability getEmployeeAviability() {
+	public EmployeeAvaiability getEmployeeAviability() {
 		return employeeAviability;
 	}
 
-	public void setEmployeeAviability(EmployeeAviability employeeAviability) {
+	public void setEmployeeAviability(EmployeeAvaiability employeeAviability) {
 		this.employeeAviability = employeeAviability;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee: \n rg=" + rg + ", \n meritalStatus=" + meritalStatus + ", \n schooling=" + schooling
+		return "Employee: \n rg=" + rg + ", \n meritalStatus=" + maritalStatus + ", \n schooling=" + schooling
 				+ ", \n responsability=" + responsability + ", \n pis=" + pis + ", admissionDate=" + admissionDate
 				+ ", \n resignationDate=" + resignationDate + ", \n tableAviability=" + employeeAviability;
 	}

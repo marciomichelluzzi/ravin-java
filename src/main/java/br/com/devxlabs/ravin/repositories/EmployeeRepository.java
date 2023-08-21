@@ -12,8 +12,8 @@ import br.com.devxlabs.ravin.database.ConnectionFactory;
 import br.com.devxlabs.ravin.database.ConnectionUtils;
 import br.com.devxlabs.ravin.entities.Employee;
 import br.com.devxlabs.ravin.entities.Person;
-import br.com.devxlabs.ravin.enums.EmployeeAviability;
-import br.com.devxlabs.ravin.enums.MeritalStatus;
+import br.com.devxlabs.ravin.enums.EmployeeAvaiability;
+import br.com.devxlabs.ravin.enums.MaritalStatus;
 import br.com.devxlabs.ravin.enums.Responsibility;
 import br.com.devxlabs.ravin.enums.Schooling;
 import br.com.devxlabs.ravin.repositories.interfaces.RepositoryInterface;
@@ -55,13 +55,13 @@ public class EmployeeRepository implements RepositoryInterface<Employee> {
 				Employee employee = new Employee();
 				employee.setEmployeeId(resultSet.getInt("id"));
 				employee.setRg(resultSet.getString("rg"));
-				employee.setMeritalStatus(MeritalStatus.valueOf(resultSet.getString("meritalStatus")));
+				employee.setMeritalStatus(MaritalStatus.valueOf(resultSet.getString("meritalStatus")));
 				employee.setSchooling(Schooling.valueOf(resultSet.getString("schooling")));
 				employee.setResponsability(Responsibility.valueOf(resultSet.getString("responsability")));
 				employee.setPis(resultSet.getInt("pis"));
 				employee.setAdmissionDate(resultSet.getDate("admissionDate"));
 				employee.setResignationDate(resultSet.getDate("resignationDate"));
-				employee.setEmployeeAviability(EmployeeAviability.valueOf(resultSet.getString("employeeAviability")));
+				employee.setEmployeeAviability(EmployeeAvaiability.valueOf(resultSet.getString("employeeAviability")));
 
 				var personId = resultSet.getInt("personId");
 				Person person = personRepository.findById(personId);
@@ -121,13 +121,13 @@ public class EmployeeRepository implements RepositoryInterface<Employee> {
 				employee = new Employee();
 				employee.setEmployeeId(resultSet.getInt("id"));
 				employee.setRg(resultSet.getString("rg"));
-				employee.setMeritalStatus(MeritalStatus.valueOf(resultSet.getString("meritalStatus")));
+				employee.setMeritalStatus(MaritalStatus.valueOf(resultSet.getString("meritalStatus")));
 				employee.setSchooling(Schooling.valueOf(resultSet.getString("schooling")));
 				employee.setResponsability(Responsibility.valueOf(resultSet.getString("responsability")));
 				employee.setPis(resultSet.getInt("pis"));
 				employee.setAdmissionDate(resultSet.getDate("admissionDate"));
 				employee.setResignationDate(resultSet.getDate("resignationDate"));
-				employee.setEmployeeAviability(EmployeeAviability.valueOf(resultSet.getString("employeeAviability")));
+				employee.setEmployeeAviability(EmployeeAvaiability.valueOf(resultSet.getString("employeeAviability")));
 
 				var personId = resultSet.getInt("personId");
 				Person person = personRepository.findById(personId);

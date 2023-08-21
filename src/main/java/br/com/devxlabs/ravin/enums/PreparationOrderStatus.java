@@ -5,6 +5,6 @@ public enum PreparationOrderStatus {
 	REQUESTED,
 	READY,
 	PREPARING,
-	RELIVERED
+	DELIVERED
 
 }

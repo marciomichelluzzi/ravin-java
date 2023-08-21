@@ -12,9 +12,8 @@ import br.com.devxlabs.ravin.entities.Person;
 import br.com.devxlabs.ravin.entities.Product;
 import br.com.devxlabs.ravin.entities.Table;
 import br.com.devxlabs.ravin.enums.CommandaStatus;
-import br.com.devxlabs.ravin.enums.EmployeeAviability;
-import br.com.devxlabs.ravin.enums.MeritalStatus;
-import br.com.devxlabs.ravin.enums.ProductType;
+import br.com.devxlabs.ravin.enums.EmployeeAvaiability;
+import br.com.devxlabs.ravin.enums.MaritalStatus;
 import br.com.devxlabs.ravin.enums.Responsibility;
 import br.com.devxlabs.ravin.enums.Schooling;
 import br.com.devxlabs.ravin.enums.TableStatus;
@@ -93,10 +92,10 @@ public class MockUtils {
 	public static List<Employee> createEmployeeList() {
 		List<Employee> employeeList = new ArrayList<>();
 
-		employeeList.add(new Employee(1, "1234567", MeritalStatus.SINGLE, Schooling.HIGHER, Responsibility.WAITER,
-				new Date(), new Date(), EmployeeAviability.AVAILABLE, 12312));
-		employeeList.add(new Employee(2, "34533345", MeritalStatus.MARRIED, Schooling.HIGH, Responsibility.COOK,
-				new Date(), new Date(), EmployeeAviability.AVAILABLE, 3453));
+		employeeList.add(new Employee(1, "1234567", MaritalStatus.SINGLE, Schooling.HIGHER, Responsibility.WAITER,
+				new Date(), new Date(), EmployeeAvaiability.AVAILABLE, 12312));
+		employeeList.add(new Employee(2, "34533345", MaritalStatus.MARRIED, Schooling.HIGH, Responsibility.COOK,
+				new Date(), new Date(), EmployeeAvaiability.AVAILABLE, 3453));
 
 		return employeeList;
 	}
