@@ -1,6 +1,6 @@
 package br.com.devxlabs.ravin.enums;
 
-public enum CommandaStatus {
+public enum TabStatus {
 	
 	OPEN("OPEN"),
 	PAID("PAID"),
@@ -8,7 +8,7 @@ public enum CommandaStatus {
 
 	private String description = "";
 
-    CommandaStatus(String description) {
+    TabStatus(String description) {
         this.description = description;
     }
 
