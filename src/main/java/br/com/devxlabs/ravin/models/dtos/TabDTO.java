@@ -1,36 +1,30 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.dtos;
+
+import br.com.devxlabs.ravin.enums.TabStatus;
 
 import java.util.List;
 
-import br.com.devxlabs.ravin.enums.TabStatus;
-import jakarta.persistence.*;
+public class TabDTO {
 
-@Entity
-@jakarta.persistence.Table(name = "restaurant_table")
-public class Tab {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "table_id")
-	private Table table;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "customer_id")
-	private Customer customer;
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<OrderDetail> orderDetails;
-	@Column(unique = true, nullable = false)
+
+	private TableDTO table;
+
+	private CustomerDTO customer;
+
+	private List<OrderDetailDTO> orderDetails;
+
 	private String code;
 	private String comments;
-	@Enumerated(value = EnumType.STRING)
+
 	private TabStatus tabStatus;
 
-	public Tab() {
+	public TabDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Tab(int id, Table table, Customer customer, List<OrderDetail> orderDetails, String code,
-			   String comments, TabStatus tabStatus) {
+	public TabDTO(int id, TableDTO table, CustomerDTO customer, List<OrderDetailDTO> orderDetails, String code,
+				  String comments, TabStatus tabStatus) {
 		super();
 		this.id = id;
 		this.table = table;
@@ -49,27 +43,27 @@ public class Tab {
 		this.id = id;
 	}
 
-	public Table getTable() {
+	public TableDTO getTable() {
 		return table;
 	}
 
-	public void setTable(Table table) {
+	public void setTable(TableDTO table) {
 		this.table = table;
 	}
 
-	public Customer getCustomer() {
+	public CustomerDTO getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(CustomerDTO customer) {
 		this.customer = customer;
 	}
 
-	public List<OrderDetail> getOrderDetails() {
+	public List<OrderDetailDTO> getOrderDetails() {
 		return orderDetails;
 	}
 
-	public void setOrderDetails(List<OrderDetail> orderDetails) {
+	public void setOrderDetails(List<OrderDetailDTO> orderDetails) {
 		this.orderDetails = orderDetails;
 	}
 

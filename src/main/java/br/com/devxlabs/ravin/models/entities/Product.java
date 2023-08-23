@@ -1,8 +1,9 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.entities;
 
-import java.util.Date;
 import br.com.devxlabs.ravin.enums.ProductType;
 import jakarta.persistence.*;
+
+import java.util.Date;
 
 @Entity
 public class Product {

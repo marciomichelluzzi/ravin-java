@@ -1,12 +1,12 @@
-package br.com.devxlabs.ravin.entities;
-
-import java.util.Date;
+package br.com.devxlabs.ravin.models.entities;
 
 import br.com.devxlabs.ravin.enums.EmployeeAvaiability;
 import br.com.devxlabs.ravin.enums.MaritalStatus;
 import br.com.devxlabs.ravin.enums.Responsibility;
 import br.com.devxlabs.ravin.enums.Schooling;
 import jakarta.persistence.*;
+
+import java.util.Date;
 
 @Entity
 public class Employee extends Person {

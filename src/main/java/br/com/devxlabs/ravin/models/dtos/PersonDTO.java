@@ -1,34 +1,26 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.dtos;
+
+import br.com.devxlabs.ravin.models.entities.Address;
 
 import java.util.Date;
 
-import jakarta.persistence.*;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-@Entity
-public abstract class Person {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public abstract class PersonDTO {
+
 	private int id;
-	@Column(nullable = false)
 	private String name;
-	@Embedded
 	private Address address;
 	private String phone;
-	@Column(unique = true, nullable = false)
 	private String cpf;
 	private Date dateOfBirth;
 	private String observations;
-	@Column(nullable = false)
 	private boolean hasActive;
 
-	public Person() {
+	public PersonDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Person(int id, String name, String phone, String cpf, Date dateOfBirth, String observations,
-			boolean hasActive) {
+	public PersonDTO(int id, String name, String phone, String cpf, Date dateOfBirth, String observations,
+					 boolean hasActive) {
 		super();
 		this.id = id;
 		this.name = name;

@@ -1,8 +1,8 @@
 package br.com.devxlabs.ravin.controllers.interfaces;
 
-import br.com.devxlabs.ravin.entities.Tab;
-import br.com.devxlabs.ravin.entities.Employee;
-import br.com.devxlabs.ravin.entities.Table;
+import br.com.devxlabs.ravin.models.entities.Employee;
+import br.com.devxlabs.ravin.models.entities.Tab;
+import br.com.devxlabs.ravin.models.entities.Table;
 
 public interface TableControllerInterface extends ControllerInterface<Table> {
 	

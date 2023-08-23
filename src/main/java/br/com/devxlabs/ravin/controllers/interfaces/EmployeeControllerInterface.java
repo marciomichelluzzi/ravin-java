@@ -1,8 +1,8 @@
 package br.com.devxlabs.ravin.controllers.interfaces;
 
-import java.util.List;
+import br.com.devxlabs.ravin.models.entities.Employee;
 
-import br.com.devxlabs.ravin.entities.Employee;
+import java.util.List;
 
 public interface EmployeeControllerInterface extends ControllerInterface<Employee> {
 	

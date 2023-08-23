@@ -1,4 +1,4 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

@@ -1,35 +1,31 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.dtos;
+
+import br.com.devxlabs.ravin.enums.TableStatus;
 
 import java.util.List;
 
-import br.com.devxlabs.ravin.enums.TableStatus;
-import jakarta.persistence.*;
+public class TableDTO {
 
-@Entity
-@jakarta.persistence.Table(name = "restaurant_table")
-public class Table {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@OneToOne(cascade = CascadeType.ALL)
-	private Employee employee;
-	@OneToMany(mappedBy = "table", cascade = CascadeType.ALL)
-	private List<Tab> tabs;
-	@Column(nullable = false, unique = true)
+
+	private EmployeeDTO employee;
+
+	private List<TabDTO> tabs;
+
 	private String name;
-	@Column(nullable = false, unique = true)
+
 	private String code;
-	@Column(unique = true)
+
 	private int number;
-	@Enumerated(EnumType.STRING)
+
 	private TableStatus tableStatus;
 
-	public Table() {
+	public TableDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Table(int id, Employee employee, List<Tab> tabs, String name, String code, int number,
-				 TableStatus tableStatus) {
+	public TableDTO(int id, EmployeeDTO employee, List<TabDTO> tabs, String name, String code, int number,
+					TableStatus tableStatus) {
 		super();
 		this.id = id;
 		this.employee = employee;
@@ -48,19 +44,19 @@ public class Table {
 		this.id = id;
 	}
 
-	public Employee getEmployee() {
+	public EmployeeDTO getEmployee() {
 		return employee;
 	}
 
-	public void setEmployee(Employee employee) {
+	public void setEmployee(EmployeeDTO employee) {
 		this.employee = employee;
 	}
 
-	public List<Tab> getTabs() {
+	public List<TabDTO> getTabs() {
 		return tabs;
 	}
 
-	public void setTabs(List<Tab> tabs) {
+	public void setTabs(List<TabDTO> tabs) {
 		this.tabs = tabs;
 	}
 

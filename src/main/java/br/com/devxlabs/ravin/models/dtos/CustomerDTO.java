@@ -1,23 +1,16 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.dtos;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+public class CustomerDTO extends PersonDTO {
 
-@Entity
-public class Customer extends Person {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String allergies;
 	private boolean vip;
 
-	public Customer() {
+	public CustomerDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Customer(int id, String allergies, boolean vip) {
+	public CustomerDTO(int id, String allergies, boolean vip) {
 		super();
 		this.id = id;
 		this.allergies = allergies;

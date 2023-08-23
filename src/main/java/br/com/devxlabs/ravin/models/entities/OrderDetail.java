@@ -1,10 +1,10 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.entities;
 
-
-import java.sql.Timestamp;
 
 import br.com.devxlabs.ravin.enums.PreparationOrderStatus;
 import jakarta.persistence.*;
+
+import java.sql.Timestamp;
 
 @Entity
 public class OrderDetail {
