@@ -3,28 +3,37 @@ package br.com.devxlabs.ravin.entities;
 import java.util.List;
 
 import br.com.devxlabs.ravin.enums.TableStatus;
+import jakarta.persistence.*;
 
+@Entity
+@jakarta.persistence.Table(name = "restaurant_table")
 public class Table {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+	@OneToOne(cascade = CascadeType.ALL)
 	private Employee employee;
-	private List<Commanda> commands;
+	@OneToMany(mappedBy = "table", cascade = CascadeType.ALL)
+	private List<Tab> tabs;
+	@Column(nullable = false, unique = true)
 	private String name;
-	private String code;	
+	@Column(nullable = false, unique = true)
+	private String code;
+	@Column(unique = true)
 	private int number;
+	@Enumerated(EnumType.STRING)
 	private TableStatus tableStatus;
 
 	public Table() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Table(int id, Employee employee, List<Commanda> commands, String name, String code, int number,
-			TableStatus tableStatus) {
+	public Table(int id, Employee employee, List<Tab> tabs, String name, String code, int number,
+				 TableStatus tableStatus) {
 		super();
 		this.id = id;
 		this.employee = employee;
-		this.commands = commands;
+		this.tabs = tabs;
 		this.name = name;
 		this.code = code;
 		this.number = number;
@@ -47,12 +56,12 @@ public class Table {
 		this.employee = employee;
 	}
 
-	public List<Commanda> getCommands() {
-		return commands;
+	public List<Tab> getTabs() {
+		return tabs;
 	}
 
-	public void setCommands(List<Commanda> commands) {
-		this.commands = commands;
+	public void setTabs(List<Tab> tabs) {
+		this.tabs = tabs;
 	}
 
 	public String getName() {

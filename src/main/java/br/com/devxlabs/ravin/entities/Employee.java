@@ -6,43 +6,52 @@ import br.com.devxlabs.ravin.enums.EmployeeAvaiability;
 import br.com.devxlabs.ravin.enums.MaritalStatus;
 import br.com.devxlabs.ravin.enums.Responsibility;
 import br.com.devxlabs.ravin.enums.Schooling;
+import jakarta.persistence.*;
 
+@Entity
 public class Employee extends Person {
-
-	private int employeeId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@Column(unique = true, nullable = false)
 	private String rg;
-	private MaritalStatus maritalStatus;
-	private Schooling schooling;
-	private Responsibility responsability;
+	@Column(unique = true, nullable = false)
 	private int pis;
+	@Enumerated(value = EnumType.STRING)
+	private MaritalStatus maritalStatus;
+	@Enumerated(value = EnumType.STRING)
+	private Schooling schooling;
+	@Enumerated(value = EnumType.STRING)
+	private Responsibility responsibility;
+	@Enumerated(value = EnumType.STRING)
+	private EmployeeAvaiability employeeAvailability;
 	private Date admissionDate;
 	private Date resignationDate;
-	private EmployeeAvaiability employeeAviability;
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int employeeId, String rg, MaritalStatus maritalStatus, Schooling schooling, Responsibility responsability,
-					Date admissionDate, Date resignationDate, EmployeeAvaiability employeeAviability, int pis) {
+	public Employee(int id, String rg, MaritalStatus maritalStatus, Schooling schooling, Responsibility responsibility,
+					Date admissionDate, Date resignationDate, EmployeeAvaiability employeeAvailability, int pis) {
 		super();
-		this.employeeId = employeeId;
+		this.id = id;
 		this.rg = rg;
 		this.maritalStatus = maritalStatus;
 		this.schooling = schooling;
-		this.responsability = responsability;
+		this.responsibility = responsibility;
 		this.admissionDate = admissionDate;
 		this.resignationDate = resignationDate;
-		this.employeeAviability = employeeAviability;
+		this.employeeAvailability = employeeAvailability;
 		this.pis = pis;
 	}
 
-	public int getEmployeeId() {
-		return employeeId;
+	public int getId() {
+		return id;
 	}
 
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getRg() {
@@ -69,12 +78,12 @@ public class Employee extends Person {
 		this.schooling = schooling;
 	}
 
-	public Responsibility getResponsability() {
-		return responsability;
+	public Responsibility getResponsibility() {
+		return responsibility;
 	}
 
-	public void setResponsability(Responsibility responsability) {
-		this.responsability = responsability;
+	public void setResponsibility(Responsibility responsibility) {
+		this.responsibility = responsibility;
 	}
 
 	public int getPis() {
@@ -101,18 +110,18 @@ public class Employee extends Person {
 		this.resignationDate = resignationDate;
 	}
 
-	public EmployeeAvaiability getEmployeeAviability() {
-		return employeeAviability;
+	public EmployeeAvaiability getEmployeeAvailability() {
+		return employeeAvailability;
 	}
 
-	public void setEmployeeAviability(EmployeeAvaiability employeeAviability) {
-		this.employeeAviability = employeeAviability;
+	public void setEmployeeAvailability(EmployeeAvaiability employeeAvailability) {
+		this.employeeAvailability = employeeAvailability;
 	}
 
 	@Override
 	public String toString() {
 		return "Employee: \n rg=" + rg + ", \n meritalStatus=" + maritalStatus + ", \n schooling=" + schooling
-				+ ", \n responsability=" + responsability + ", \n pis=" + pis + ", admissionDate=" + admissionDate
-				+ ", \n resignationDate=" + resignationDate + ", \n tableAviability=" + employeeAviability;
+				+ ", \n responsability=" + responsibility + ", \n pis=" + pis + ", admissionDate=" + admissionDate
+				+ ", \n resignationDate=" + resignationDate + ", \n tableAviability=" + employeeAvailability;
 	}
 }

@@ -4,31 +4,37 @@ package br.com.devxlabs.ravin.entities;
 import java.sql.Timestamp;
 
 import br.com.devxlabs.ravin.enums.PreparationOrderStatus;
+import jakarta.persistence.*;
 
-public class Order {
-	
+@Entity
+public class OrderDetail {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@OneToOne(cascade = CascadeType.ALL)
 	private Product product;
 	private Timestamp requestDateTime;
 	private Timestamp startPreparationDateTime;
-	private Timestamp remindingPreparationTime;
+	private Timestamp remainingPreparationTime;
+	@Enumerated(value = EnumType.STRING)
 	private PreparationOrderStatus preparationOrderStatus;
 	private String comments;
+	@Column(nullable = false)
 	private int quantity;
 	
-	public Order() {
+	public OrderDetail() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Order(int id, Product product, Timestamp requestDateTime, Timestamp startPreparationDateTime,
-			Timestamp remindingPreparationTime, PreparationOrderStatus preparationOrderStatus, String comments,
-			int quantity) {
+	public OrderDetail(int id, Product product, Timestamp requestDateTime, Timestamp startPreparationDateTime,
+					   Timestamp remainingPreparationTime, PreparationOrderStatus preparationOrderStatus, String comments,
+					   int quantity) {
 		super();
 		this.id = id;
 		this.product = product;
 		this.requestDateTime = requestDateTime;
 		this.startPreparationDateTime = startPreparationDateTime;
-		this.remindingPreparationTime = remindingPreparationTime;
+		this.remainingPreparationTime = remainingPreparationTime;
 		this.preparationOrderStatus = preparationOrderStatus;
 		this.comments = comments;
 		this.quantity = quantity;
@@ -66,12 +72,12 @@ public class Order {
 		this.startPreparationDateTime = startPreparationDateTime;
 	}
 
-	public Timestamp getRemindingPreparationTime() {
-		return remindingPreparationTime;
+	public Timestamp getRemainingPreparationTime() {
+		return remainingPreparationTime;
 	}
 
-	public void setRemindingPreparationTime(Timestamp remindingPreparationTime) {
-		this.remindingPreparationTime = remindingPreparationTime;
+	public void setRemainingPreparationTime(Timestamp remainingPreparationTime) {
+		this.remainingPreparationTime = remainingPreparationTime;
 	}
 
 	public PreparationOrderStatus getPreparationOrderStatus() {
@@ -102,7 +108,7 @@ public class Order {
 	public String toString() {
 		return "Order [id=" + id + ", product=" + product + ", requestDateTime=" + requestDateTime
 				+ ", startPreparationDateTime=" + startPreparationDateTime + ", remindingPreparationTime="
-				+ remindingPreparationTime + ", preparationOrderStatus=" + preparationOrderStatus + ", comments="
+				+ remainingPreparationTime + ", preparationOrderStatus=" + preparationOrderStatus + ", comments="
 				+ comments + ", quantity=" + quantity + "]";
 	}
 }
