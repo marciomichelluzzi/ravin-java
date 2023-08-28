@@ -1,30 +1,35 @@
-package br.com.devxlabs.ravin.entities;
-
-import java.util.List;
+package br.com.devxlabs.ravin.models.dtos;
 
 import br.com.devxlabs.ravin.enums.TableStatus;
 
-public class Table {
+import java.util.List;
+
+public class TableDTO {
 
 	private int id;
-	
-	private Employee employee;
-	private List<Commanda> commands;
+
+	private EmployeeDTO employee;
+
+	private List<TabDTO> tabs;
+
 	private String name;
-	private String code;	
+
+	private String code;
+
 	private int number;
+
 	private TableStatus tableStatus;
 
-	public Table() {
+	public TableDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Table(int id, Employee employee, List<Commanda> commands, String name, String code, int number,
-			TableStatus tableStatus) {
+	public TableDTO(int id, EmployeeDTO employee, List<TabDTO> tabs, String name, String code, int number,
+					TableStatus tableStatus) {
 		super();
 		this.id = id;
 		this.employee = employee;
-		this.commands = commands;
+		this.tabs = tabs;
 		this.name = name;
 		this.code = code;
 		this.number = number;
@@ -39,20 +44,20 @@ public class Table {
 		this.id = id;
 	}
 
-	public Employee getEmployee() {
+	public EmployeeDTO getEmployee() {
 		return employee;
 	}
 
-	public void setEmployee(Employee employee) {
+	public void setEmployee(EmployeeDTO employee) {
 		this.employee = employee;
 	}
 
-	public List<Commanda> getCommands() {
-		return commands;
+	public List<TabDTO> getTabs() {
+		return tabs;
 	}
 
-	public void setCommands(List<Commanda> commands) {
-		this.commands = commands;
+	public void setTabs(List<TabDTO> tabs) {
+		this.tabs = tabs;
 	}
 
 	public String getName() {

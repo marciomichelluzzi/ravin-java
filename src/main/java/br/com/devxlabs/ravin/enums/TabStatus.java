@@ -1,19 +1,19 @@
 package br.com.devxlabs.ravin.enums;
 
-public enum EmployeeAviability {
+public enum TabStatus {
 	
-	BUSY("BUSY"),
-	AVAILABLE("AVAILABLE");
-	
+	OPEN("OPEN"),
+	PAID("PAID"),
+	CLOSED("CLOSED");
 
 	private String description = "";
 
-	EmployeeAviability(String description) {
+    TabStatus(String description) {
         this.description = description;
     }
 
     public String getDescription() {
         return description;
     }
-
+	
 }

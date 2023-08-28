@@ -1,28 +1,20 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.dtos;
 
-public class Customer extends Person {
-	
-	private int customerId;
+public class CustomerDTO extends PersonDTO {
+
+	private int id;
 	private String allergies;
 	private boolean vip;
 
-	public Customer() {
+	public CustomerDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Customer(int customerId, String allergies, boolean vip) {
+	public CustomerDTO(int id, String allergies, boolean vip) {
 		super();
-		this.customerId = customerId;
+		this.id = id;
 		this.allergies = allergies;
 		this.vip = vip;
-	}
-
-	public int getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
 	}
 
 	public String getAllergies() {
