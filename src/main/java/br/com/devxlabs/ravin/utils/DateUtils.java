@@ -1,4 +1,4 @@
-package br.com.devxlabs.ravin.utility;
+package br.com.devxlabs.ravin.utils;
 
 import java.text.DateFormat;
 import java.text.ParseException;

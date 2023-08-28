@@ -1,50 +1,30 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.dtos;
 
-
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-import br.com.devxlabs.ravin.enums.PreparationOrderStatus;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import br.com.devxlabs.ravin.models.enums.PreparationOrderStatus;
 
-@Entity
-public class OrderDetail {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
-	@OneToOne(cascade =  CascadeType.ALL)
-	private Product product;
-	
+public class OrderDetailDTO implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private ProductDTO product;
 	private Timestamp requestDateTime;
 	private Timestamp startPreparationDateTime;
 	private Timestamp reminingPreparationTime;
-	
-	@Enumerated(value = EnumType.STRING)
 	private PreparationOrderStatus preparationOrderStatus;
-	
 	private String comments;
-	
-	@Column(nullable = false)
 	private int quantity;
-	
-	public OrderDetail() {
+
+	public OrderDetailDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrderDetail(int id, Product product, Timestamp requestDateTime, Timestamp startPreparationDateTime,
+	public OrderDetailDTO(int id, ProductDTO product, Timestamp requestDateTime, Timestamp startPreparationDateTime,
 			Timestamp reminingPreparationTime, PreparationOrderStatus preparationOrderStatus, String comments,
 			int quantity) {
 		super();
-		this.id = id;
 		this.product = product;
 		this.requestDateTime = requestDateTime;
 		this.startPreparationDateTime = startPreparationDateTime;
@@ -54,19 +34,11 @@ public class OrderDetail {
 		this.quantity = quantity;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Product getProduct() {
+	public ProductDTO getProduct() {
 		return product;
 	}
 
-	public void setProduct(Product product) {
+	public void setProduct(ProductDTO product) {
 		this.product = product;
 	}
 
@@ -120,8 +92,8 @@ public class OrderDetail {
 
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", product=" + product + ", requestDateTime=" + requestDateTime
-				+ ", startPreparationDateTime=" + startPreparationDateTime + ", remindingPreparationTime="
+		return "OrderDetailDTO [product=" + product + ", requestDateTime=" + requestDateTime
+				+ ", startPreparationDateTime=" + startPreparationDateTime + ", reminingPreparationTime="
 				+ reminingPreparationTime + ", preparationOrderStatus=" + preparationOrderStatus + ", comments="
 				+ comments + ", quantity=" + quantity + "]";
 	}

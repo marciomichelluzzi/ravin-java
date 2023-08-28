@@ -1,4 +1,4 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,11 +7,11 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Customer extends Person {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String allergies;
 	private boolean vip;
 
@@ -52,6 +52,12 @@ public class Customer extends Person {
 
 	@Override
 	public String toString() {
-		return "Customer [allergies=" + allergies + ", vip=" + vip + "]";
+		return "Customer [id=" + id + ", allergies=" + allergies + ", vip=" + vip + ", getName()=" + getName()
+				+ ", getAddress()=" + getAddress() + ", getPhone()=" + getPhone() + ", getCpf()=" + getCpf()
+				+ ", getDateOfBirth()=" + getDateOfBirth() + ", getObservations()=" + getObservations()
+				+ ", isHasActive()=" + isHasActive() + ", getCreatedBy()=" + getCreatedBy() + ", getCreatedDate()="
+				+ getCreatedDate() + ", getUpdatedBy()=" + getUpdatedBy() + ", getUpdatedDate()=" + getUpdatedDate()
+				+ "]";
 	}
+
 }

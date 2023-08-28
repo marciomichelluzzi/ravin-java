@@ -1,4 +1,4 @@
-package br.com.devxlabs.ravin.enums;
+package br.com.devxlabs.ravin.models.enums;
 
 public enum Schooling {
 	

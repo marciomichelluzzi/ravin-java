@@ -1,6 +1,6 @@
 package br.com.devxlabs.ravin.controllers.interfaces;
 
-import br.com.devxlabs.ravin.entities.OrderDetail;
+import br.com.devxlabs.ravin.models.entities.OrderDetail;
 
 public interface OrderControllerInterface extends ControllerInterface<OrderDetail> {
 	

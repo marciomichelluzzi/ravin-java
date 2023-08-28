@@ -1,11 +1,11 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.entities;
 
 import java.util.Date;
 
-import br.com.devxlabs.ravin.enums.EmployeeAviability;
-import br.com.devxlabs.ravin.enums.MeritalStatus;
-import br.com.devxlabs.ravin.enums.Responsibility;
-import br.com.devxlabs.ravin.enums.Schooling;
+import br.com.devxlabs.ravin.models.enums.EmployeeAviability;
+import br.com.devxlabs.ravin.models.enums.MeritalStatus;
+import br.com.devxlabs.ravin.models.enums.Responsibility;
+import br.com.devxlabs.ravin.models.enums.Schooling;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -20,25 +20,25 @@ public class Employee extends Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(unique = true, nullable = false)
 	private String rg;
-	
+
 	@Enumerated(value = EnumType.STRING)
 	private MeritalStatus meritalStatus;
-	
+
 	@Enumerated(value = EnumType.STRING)
 	private Schooling schooling;
-	
+
 	@Enumerated(value = EnumType.STRING)
 	private Responsibility responsability;
-	
+
 	@Column(unique = true, nullable = false)
 	private int pis;
-	
+
 	private Date admissionDate;
 	private Date resignationDate;
-	
+
 	@Enumerated(value = EnumType.STRING)
 	private EmployeeAviability employeeAviability;
 
@@ -134,8 +134,14 @@ public class Employee extends Person {
 
 	@Override
 	public String toString() {
-		return "Employee: \n rg=" + rg + ", \n meritalStatus=" + meritalStatus + ", \n schooling=" + schooling
-				+ ", \n responsability=" + responsability + ", \n pis=" + pis + ", admissionDate=" + admissionDate
-				+ ", \n resignationDate=" + resignationDate + ", \n tableAviability=" + employeeAviability;
+		return "Employee [id=" + id + ", rg=" + rg + ", meritalStatus=" + meritalStatus + ", schooling=" + schooling
+				+ ", responsability=" + responsability + ", pis=" + pis + ", admissionDate=" + admissionDate
+				+ ", resignationDate=" + resignationDate + ", employeeAviability=" + employeeAviability + ", getId()="
+				+ getId() + ", getName()=" + getName() + ", getAddress()=" + getAddress() + ", getPhone()=" + getPhone()
+				+ ", getCpf()=" + getCpf() + ", getDateOfBirth()=" + getDateOfBirth() + ", getObservations()="
+				+ getObservations() + ", isHasActive()=" + isHasActive() + ", getCreatedBy()=" + getCreatedBy()
+				+ ", getCreatedDate()=" + getCreatedDate() + ", getUpdatedBy()=" + getUpdatedBy()
+				+ ", getUpdatedDate()=" + getUpdatedDate() + "]";
 	}
+
 }

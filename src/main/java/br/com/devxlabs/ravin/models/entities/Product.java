@@ -1,8 +1,11 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.entities;
 
 import java.util.Date;
 
-import br.com.devxlabs.ravin.enums.ProductType;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+
+import br.com.devxlabs.ravin.models.enums.ProductType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -43,16 +46,16 @@ public class Product {
 	@Column(nullable = false)
 	private boolean hasActive;
 	
-	@Column(updatable = false)
+	@CreatedBy
 	private String createdBy;
 	
-	@Column(updatable = false)
+	@CreatedDate
 	private Date createdDate;
-
+	
 	private String updatedBy;
 	private Date updatedDate;
 	
-	public Product() {
+	Product() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -191,6 +194,8 @@ public class Product {
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", code=" + code
 				+ ", costPrice=" + costPrice + ", salePrice=" + salePrice + ", preparationTime=" + preparationTime
-				+ ", comments=" + comments + ", productType=" + productType + ", hasActive=" + hasActive + "]";
-	}	
+				+ ", comments=" + comments + ", productType=" + productType + ", hasActive=" + hasActive
+				+ ", createdBy=" + createdBy + ", createdDate=" + createdDate + ", updatedBy=" + updatedBy
+				+ ", updatedDate=" + updatedDate + "]";
+	}
 }

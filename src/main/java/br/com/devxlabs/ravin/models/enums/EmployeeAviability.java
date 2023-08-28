@@ -1,14 +1,14 @@
-package br.com.devxlabs.ravin.enums;
+package br.com.devxlabs.ravin.models.enums;
 
-public enum TableStatus {
+public enum EmployeeAviability {
 	
-	RESERVED("RESERVED"),
-	OCCUPIED("OCCUPIED"),
+	BUSY("BUSY"),
 	AVAILABLE("AVAILABLE");
 	
+
 	private String description = "";
 
-	TableStatus(String description) {
+	EmployeeAviability(String description) {
         this.description = description;
     }
 

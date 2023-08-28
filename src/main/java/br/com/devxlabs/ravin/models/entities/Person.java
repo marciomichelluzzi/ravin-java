@@ -1,6 +1,9 @@
-package br.com.devxlabs.ravin.entities;
+package br.com.devxlabs.ravin.models.entities;
 
 import java.util.Date;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -15,30 +18,37 @@ public abstract class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(nullable = false)
 	private String name;
-	
+
 	@Embedded
 	private Address address;
 	private String phone;
-	
+
 	@Column(nullable = false, unique = true)
 	private String cpf;
 	private Date dateOfBirth;
 	private String observations;
-	
+
 	@Column(nullable = false)
 	private boolean hasActive;
-	
-	private boolean test;
+
+	@CreatedBy
+	private String createdBy;
+
+	@CreatedDate
+	private Date createdDate;
+
+	private String updatedBy;
+	private Date updatedDate;
 
 	public Person() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Person(int id, String name, Address address, String phone, String cpf, Date dateOfBirth, String observations,
-			boolean hasActive) {
+			boolean hasActive, String createdBy, Date createdDate, String updatedBy, Date updatedDate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -48,6 +58,10 @@ public abstract class Person {
 		this.dateOfBirth = dateOfBirth;
 		this.observations = observations;
 		this.hasActive = hasActive;
+		this.createdBy = createdBy;
+		this.createdDate = createdDate;
+		this.updatedBy = updatedBy;
+		this.updatedDate = updatedDate;
 	}
 
 	public int getId() {
@@ -114,11 +128,43 @@ public abstract class Person {
 		this.hasActive = hasActive;
 	}
 
-	@Override
-	public String toString() {
-		return "Person \n id=" + id + ", \n name=" + name + ", \n address=" + address + ", \n phone=" + phone
-				+ ", \n cpf=" + cpf + ", \n dateOfBirth=" + dateOfBirth + ", \n observations=" + observations
-				+ ", \n hasActive=" + hasActive;
+	public String getCreatedBy() {
+		return createdBy;
 	}
 
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(Date updatedDate) {
+		this.updatedDate = updatedDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", name=" + name + ", address=" + address + ", phone=" + phone + ", cpf=" + cpf
+				+ ", dateOfBirth=" + dateOfBirth + ", observations=" + observations + ", hasActive=" + hasActive
+				+ ", createdBy=" + createdBy + ", createdDate=" + createdDate + ", updatedBy=" + updatedBy
+				+ ", updatedDate=" + updatedDate + "]";
+	}
 }
