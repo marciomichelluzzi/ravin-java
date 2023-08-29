@@ -5,20 +5,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 @Controller
 public class HelloWorldController {
-
-	@GetMapping("/helloWorldHtml")
-	public String helloWorldHtml(Model model) {
-		String message = "Hello, World!";
-		model.addAttribute("message", message);
-		return "helloWorldHtml";
+	
+	@GetMapping("/helloWorld")
+	public String helloWorld(Model model) {
+		model.addAttribute("message", "Olá mundo Teste ASDIJHAS");
+		return "helloWorld";
 	}
-
-	@GetMapping("/hello")
+	
+	@GetMapping("/helloWorldPlain")
 	@ResponseBody
-	public String helloWorld() {
-		return "Hello, World!";
+	public String helloWorldPlain() {
+		return "Teste hello word com text plain";
 	}
-
 }
