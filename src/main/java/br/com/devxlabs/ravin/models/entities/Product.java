@@ -19,7 +19,7 @@ public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
 	@Column(nullable = false)
 	private String name;
@@ -59,7 +59,7 @@ public class Product {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(int id, String name, String description, String code, double costPrice, double salePrice,
+	public Product(Long id, String name, String description, String code, double costPrice, double salePrice,
 			String preparationTime, String comments, ProductType productType, boolean hasActive, String createdBy, Date createdDate, String updatedBy, Date updatedDate) {
 		super();
 		this.id = id;
@@ -78,11 +78,11 @@ public class Product {
 		this.updatedDate = updatedDate;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-
-	public void setId(int id) {
+	
+	public void setId(Long id) {
 		this.id = id;
 	}
 

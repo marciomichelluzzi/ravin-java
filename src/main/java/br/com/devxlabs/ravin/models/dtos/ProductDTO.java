@@ -3,28 +3,54 @@ package br.com.devxlabs.ravin.models.dtos;
 import java.io.Serializable;
 
 import br.com.devxlabs.ravin.models.enums.ProductType;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 
 public class ProductDTO implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-
+	public static final String MIN_COST_PRICE = "0.0";
+	public static final String MIN_SAlE_PRICE = "0.0";
+	
+	private static final long serialVersionUID = 42L;
+	
+	private Long id;
+	
+	@NotBlank(message = "O campo nome não pode estar em branco.")
+	@NotEmpty(message = "O campo nome não pode estar vazio.")
 	private String name;
+	
+	@NotBlank(message = "O campo descrição não pode estar em branco.")
+	@NotEmpty(message = "O campo descrição não pode estar vazio.")
 	private String description;
+	
+	@NotBlank(message = "O campo código não pode estar em branco.")
+	@NotEmpty(message = "O campo código não pode estar vazio.")
 	private String code;
-	private double costPrice;
-	private double salePrice;
+	
+	@DecimalMin(value = MIN_COST_PRICE, message = "O preço de custo não pode ser negativo.")
+	private Double costPrice;
+	
+	@DecimalMin(value = MIN_SAlE_PRICE, message = "O preço de venda não pode ser negativo.")
+	private Double salePrice;
+	
+	@NotBlank(message = "O campo tempo de preparo não pode estar em branco.")
+	@NotEmpty(message = "O campo tempo de preparo não pode estar vazio.")
 	private String preparationTime;
-	private String comments;
+	
 	private ProductType productType;
-	private boolean hasActive;
+	
+	private String comments;
+	private Boolean hasActive = true;
 
 	public ProductDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProductDTO(String name, String description, String code, double costPrice, double salePrice,
-			String preparationTime, String comments, ProductType productType, boolean hasActive) {
+	public ProductDTO(Long id, String name, String description, String code, Double costPrice, Double salePrice,
+			String preparationTime, String comments, ProductType productType, Boolean hasActive) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.code = code;
@@ -34,6 +60,14 @@ public class ProductDTO implements Serializable {
 		this.comments = comments;
 		this.productType = productType;
 		this.hasActive = hasActive;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -60,19 +94,19 @@ public class ProductDTO implements Serializable {
 		this.code = code;
 	}
 
-	public double getCostPrice() {
+	public Double getCostPrice() {
 		return costPrice;
 	}
 
-	public void setCostPrice(double costPrice) {
+	public void setCostPrice(Double costPrice) {
 		this.costPrice = costPrice;
 	}
 
-	public double getSalePrice() {
+	public Double getSalePrice() {
 		return salePrice;
 	}
 
-	public void setSalePrice(double salePrice) {
+	public void setSalePrice(Double salePrice) {
 		this.salePrice = salePrice;
 	}
 
@@ -84,14 +118,6 @@ public class ProductDTO implements Serializable {
 		this.preparationTime = preparationTime;
 	}
 
-	public String getComments() {
-		return comments;
-	}
-
-	public void setComments(String comments) {
-		this.comments = comments;
-	}
-
 	public ProductType getProductType() {
 		return productType;
 	}
@@ -100,11 +126,19 @@ public class ProductDTO implements Serializable {
 		this.productType = productType;
 	}
 
-	public boolean isHasActive() {
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+
+	public Boolean getHasActive() {
 		return hasActive;
 	}
 
-	public void setHasActive(boolean hasActive) {
+	public void setHasActive(Boolean hasActive) {
 		this.hasActive = hasActive;
 	}
 
