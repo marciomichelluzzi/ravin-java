@@ -57,7 +57,8 @@ public class ProductController {
 			@RequestParam(value = "orderBy", defaultValue = "id", required = false) String orderBy,
 			@RequestParam(value = "itensPerPage", defaultValue = "10", required = false) Integer itensPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC", required = false) String direction) {
-		return service.search(name, productType, minSalePrice, maxSalePrice);
+		return service.search(name, productType, minSalePrice, maxSalePrice, 
+				page, orderBy, itensPerPage, direction);
 	}
 
 	@PostMapping
