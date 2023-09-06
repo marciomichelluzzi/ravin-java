@@ -8,6 +8,7 @@ class RavinApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
