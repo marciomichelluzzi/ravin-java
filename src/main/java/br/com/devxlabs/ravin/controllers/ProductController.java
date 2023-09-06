@@ -62,8 +62,12 @@ public class ProductController {
 	}
 
 	@PostMapping
-	public void create(@Valid @RequestBody ProductDTO product) {
-		System.out.println(product.toString());
+	public ResponseEntity<Object> create(@Valid @RequestBody ProductDTO product) {
+		try {
+			return ResponseEntity.ok(service.create(product));
+		} catch (Exception e) {
+			return ResponseEntity.badRequest().body(e.getMessage());
+		}
 	}
 
 	@PutMapping(value = "/{id}")
