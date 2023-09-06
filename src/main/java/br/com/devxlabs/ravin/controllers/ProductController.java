@@ -57,13 +57,16 @@ public class ProductController {
 			@RequestParam(value = "orderBy", defaultValue = "id", required = false) String orderBy,
 			@RequestParam(value = "itensPerPage", defaultValue = "10", required = false) Integer itensPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC", required = false) String direction) {
-		return service.search(name, productType, minSalePrice, maxSalePrice, 
-				page, orderBy, itensPerPage, direction);
+		return service.search(name, productType, minSalePrice, maxSalePrice, page, orderBy, itensPerPage, direction);
 	}
 
 	@PostMapping
-	public void create(@Valid @RequestBody ProductDTO product) {
-		System.out.println(product.toString());
+	public ResponseEntity<Object> create(@Valid @RequestBody ProductDTO product) {
+		try {
+			return ResponseEntity.ok(service.create(product));
+		} catch (Exception e) {
+			return ResponseEntity.badRequest().body(e.getMessage());
+		}
 	}
 
 	@PutMapping(value = "/{id}")

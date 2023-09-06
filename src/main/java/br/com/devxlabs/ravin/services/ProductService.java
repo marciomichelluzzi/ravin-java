@@ -1,6 +1,7 @@
 package br.com.devxlabs.ravin.services;
 
-import java.util.ArrayList;
+import static br.com.dexlabs.ravin.consts.ExeptionConsts.*;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import br.com.devxlabs.ravin.models.dtos.ProductDTO;
 import br.com.devxlabs.ravin.models.entities.Product;
 import br.com.devxlabs.ravin.repositories.ProductRepository;
+import br.com.dexlabs.ravin.consts.ExeptionConsts;
 
 @Service
 public class ProductService {
@@ -40,7 +42,7 @@ public class ProductService {
 	}
 
 	public void deleteById(Long id) {
-		System.out.println("Deletou o produto com id = " + id);
+		
 	}
 
 	public List<ProductDTO> search(	String name, 
@@ -59,5 +61,27 @@ public class ProductService {
 		
 		return null;
 	}
-
+	public long create(ProductDTO productDTO) throws Exception {
+		return save(productDTO);
+		
+	}
+	
+	public long update(ProductDTO productDTO) throws Exception {
+		return save(productDTO);
+	}
+	
+	private Long save(ProductDTO productDTO) throws Exception {
+		if(productDTO.getCostPrice() > productDTO.getSalePrice()) {
+			throw new Exception(PRODUCT_COST_PRICE_GRATHER_THEN_SALE_PRICE);
+		}
+		try {
+			Product product = mapper.map(productDTO, Product.class);
+			Product update = productRepository.save(product);
+			return update.getId();
+		} catch (Exception e) 
+			{
+				throw new Exception(INSERT_PRODUCT_ERROR);
+			}
+		}
+		
 }
