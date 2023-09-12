@@ -18,15 +18,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.devxlabs.ravin.models.dtos.ProductDTO;
 import br.com.devxlabs.ravin.services.ProductService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/api/products")
+@Tag(name = "Produto", description = "Endpoints relacionados ao produto")
 public class ProductController {
 
 	@Autowired
 	ProductService service;
 
+	@Operation(description = "Lista todos os produtos existentes", method = "GET")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Lista com todos os produtos") })
 	@GetMapping
 	public List<ProductDTO> listAll() {
 		return service.listAll();
@@ -57,8 +64,7 @@ public class ProductController {
 			@RequestParam(value = "orderBy", defaultValue = "id", required = false) String orderBy,
 			@RequestParam(value = "itensPerPage", defaultValue = "10", required = false) Integer itensPerPage,
 			@RequestParam(value = "direction", defaultValue = "ASC", required = false) String direction) {
-		return service.search(name, productType, minSalePrice, maxSalePrice, 
-				page, orderBy, itensPerPage, direction);
+		return service.search(name, productType, minSalePrice, maxSalePrice, page, orderBy, itensPerPage, direction);
 	}
 
 	@PostMapping
