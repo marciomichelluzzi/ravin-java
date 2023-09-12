@@ -80,7 +80,7 @@ public class ProductService {
 		}
 	}
 	
-	private Long save(ProductDTO productDTO) throws Exception {
+	public Long save(ProductDTO productDTO) throws Exception {
 		if (productDTO.getCostPrice() > productDTO.getSalePrice()) {
 			throw new Exception(PRODUCT_COST_PRICE_GRATHER_THEN_SALE_PRICE);
 		}
@@ -88,6 +88,7 @@ public class ProductService {
 		try {
 			Product product = mapper.map(productDTO, Product.class);
 			Product created = productRepository.save(product);
+			
 			return created.getId();
 		} catch (Exception e) {
 			throw new Exception(PRODUCT_INSERT_ERROR);

@@ -55,7 +55,7 @@ public class Product {
 	private String updatedBy;
 	private Date updatedDate;
 	
-	Product() {
+	public Product() {
 		// TODO Auto-generated constructor stub
 	}
 
