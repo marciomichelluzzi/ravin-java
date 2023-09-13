@@ -33,12 +33,19 @@ public class ProductController {
 	ProductService service;
 
 	@Operation(description = "Lista todos os produtos existentes", method = "GET")
-	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Lista com todos os produtos") })
+	@ApiResponses(value = { 
+			@ApiResponse(responseCode = "200", description = "Lista com todos os produtos") })
 	@GetMapping
 	public List<ProductDTO> listAll() {
 		return service.listAll();
 	}
 
+	@Operation(description = "Busca um produto pelo id", method = "GET")
+	@ApiResponses(
+			value = {
+					@ApiResponse(responseCode = "200", description = "Retorna o produto encontrado com determinado id"),
+					@ApiResponse(responseCode = "404", description = "Nenhum produto encontrado com o id especificado")
+			})
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Object> findById(@PathVariable Long id) {
 		ProductDTO product = service.findById(id);
